@@ -29,6 +29,14 @@ int main()
     int guess;              // Users guessed value
     int randNum;            // Random number to guess
 
+    // Open text file containing gameMax value from previous gamesand load it into variable
+    FILE *maxValIn = fopen("maxVal.txt", "r");
+    if (maxValIn != NULL) // if file exists and contains a value then use that value for the game
+    {
+        fscanf(maxValIn, "%d", &gameMax);
+    }
+    fclose(maxValIn);
+
     // Main game loop
     while (isContinue)
     {
@@ -56,6 +64,11 @@ int main()
             break;
         }
     }
+
+    // Open text file cfor gameMax and store the current gameMax value to the file
+    FILE *maxValOut = fopen("maxVal.txt", "w");
+    fprintf(maxValOut, "%d", gameMax); 
+    fclose(maxValOut);
 
     return 0;
 }
