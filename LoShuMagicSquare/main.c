@@ -76,4 +76,6 @@ int main(void)
     //Print the Lo Shu Magic Square
     for (int i = 0; i < SIZE; i++)
         printf("[%d %d %d]\n", randSquare[i][0], randSquare[i][1], randSquare[i][2]);
+
+    return EXIT_SUCCESS;
 }
